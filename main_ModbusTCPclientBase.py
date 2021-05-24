@@ -48,17 +48,17 @@ else:
     while True:
 
         # Modbus Write HR (continuously)...
-        write_HR_message_01 = tcp.write_multiple_registers(slave_id=1, starting_address=0, values=[1])
+        write_HR_message_01 = tcp.write_multiple_registers(slave_id=1, starting_address=0, values=[1, 2, 3, 4, 5, 6, 7, 8])
         write_HR_message_01_response = tcp.send_message(write_HR_message_01, sock)
 
 
         # Modbus Read HR (continuously)...
-        read_HR_message_01 = tcp.read_holding_registers(slave_id=1, starting_address=100, quantity=10)
+        read_HR_message_01 = tcp.read_holding_registers(slave_id=1, starting_address=100, quantity=8)
         read_HR_message_01_response = tcp.send_message(read_HR_message_01, sock)
 
 
         # Modbus Read IR (continuously)...
-        read_IR_message_01 = tcp.read_input_registers(slave_id=1, starting_address=0, quantity=10)
+        read_IR_message_01 = tcp.read_input_registers(slave_id=1, starting_address=0, quantity=5)
         read_IR_message_01_response = tcp.send_message(read_IR_message_01, sock)
 
 
